@@ -21,3 +21,4 @@ Pseudocodigo LaTeX package
 \FimSe
 \FimAlgoritmo
 \end{algorithmic}
+ 
