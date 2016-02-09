@@ -1,26 +1,48 @@
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesPackage{pseudocodigo}[2016/02/09 Pseudocodigo LaTeX package]
 
-\RequirePackage{algorithm}
 \RequirePackage{algpseudocode}
 
 \algrenewcommand\textproc{} % removing uppercase names
 
-\algblock{Algoritmo}{FimAlgoritmo}
-\algblockdefx[]{Algoritmo}{FimAlgoritmo}
-[2][]{{\bf Algoritmo} #1(#2)\newline {\bf Início}}%
-{\bf Fim}
+% Statement
+\newcommand{\dec}[1]{\State #1}
+\newcommand{\str}[1]{``#1''}
 
+% Comment
+\newcommand{\Comentar}[1]{\State /* \textit{#1} */}
 
+% I/O
 \newcommand{\Ler}{\State \textbf{Ler }}
 \newcommand{\Imprimir}{\State \textbf{Imprimir }}
+
+% Reserved words
+\newcommand{\algoritmo}{\textbf{Algoritmo}}
+\newcommand{\inicio}{\textbf{In\'icio}}
+\newcommand{\fim}{\textbf{Fim}}
+\newcommand{\se}{\textbf{Se}}
+\newcommand{\entao}{\textbf{Ent\~ao}}
+\newcommand{\senao}{\textbf{Sen\~ao}}
+
+% Types
 \newcommand{\Inteiro}{\State \textbf{Inteiro }}
 \newcommand{\Real}{\State \textbf{Real }}
 \newcommand{\Logico}{\State \textbf{Logico }}
 \newcommand{\Texto}{\State \textbf{Texto }}
 
+% Se - Fim Se
+\algblockx[Se]{Se}{FimSe}
+[1][]{\se~(#1)~\entao}%
+{\fim~\se}%
 
-\algrenewcommand\algorithmicif{\textbf{Se}}
-\algrenewcommand\algorithmicthen{\textbf{Ent\~ao}}
-\algrenewcommand\algorithmicelse{\textbf{Sen\~ao}}
-\algrenewcommand\algorithmicend{\textbf{Fim}}
+% Se - Senao - Fim Se
+\algcblockdefx[SeSenao]{Se}{Senao}{FimSe}
+{\senao}%
+{\fim~\se}%
+
+% bloco
+\algblockx[Algoritmo]{Algoritmo}{FimAlgoritmo}
+[2][nomeDoAlgoritmo]{\algoritmo~#1(#2)\newline\inicio}%
+{\fim}%
+
+    
