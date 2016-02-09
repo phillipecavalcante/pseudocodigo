@@ -4,6 +4,7 @@ Pseudocodigo LaTeX package
 
 ## Exemplo 1
 
+```LaTeX
 \begin{algorithmic}
 \Algoritmo[nome]{}
 \Se [ $x > 0$ ]
@@ -11,7 +12,8 @@ Pseudocodigo LaTeX package
 \FimSe
 \FimAlgoritmo
 \end{algorithmic}
-
+```
+```LaTeX
 \begin{algorithmic}
 \Algoritmo [nome]{}
 \Se [ $x > 0$ ]
@@ -21,4 +23,4 @@ Pseudocodigo LaTeX package
 \FimSe
 \FimAlgoritmo
 \end{algorithmic}
- 
+ ```
